@@ -17,7 +17,7 @@ Dr Ferry Astika Saputra ST, M.Sc
 
 * **Code FCFS scheduling :**
 
-![alt text](https://github.com/DinoAriel/SisOp-2025/blob/main/without-fcs.png)
+![alt text](https://github.com/DinoAriel/tes/blob/main/with.png)
 
 
 * **Analisa Code :** 
@@ -38,7 +38,7 @@ Dr Ferry Astika Saputra ST, M.Sc
 
 * **Hasil Compile FCFS Scheduling Algorithm** 
 
-![alt text](https://github.com/DinoAriel/SisOp-2025/blob/main/without.png)
+![alt text](https://github.com/DinoAriel/tes/blob/main/with-fcs.png)
 
 
 **B. Analisa Code FCFS Scheduling Algorithm Withoout Arival Time** 
