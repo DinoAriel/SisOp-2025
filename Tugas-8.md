@@ -44,7 +44,8 @@ Dr Ferry Astika Saputra ST, M.Sc
 **B. Analisa Code FCFS Scheduling Algorithm Withoout Arival Time** 
 
 * **Code FCFS Scheduling Algorithm Withoout Arival Time**  
-  (code fcfs tanpa arrival time)
+  
+ ![alt text](https://github.com/DinoAriel/tes/blob/main/Logo_PENS%20(1).png)
 
   **Analisa Code :** 
 
@@ -59,7 +60,7 @@ Dr Ferry Astika Saputra ST, M.Sc
 
 * **Hasil Compile FCFS Scheduling Algorithm Withoout Arival Time**
 
-(hasil fcfs tanpa arrival time)
+![alt text](https://github.com/DinoAriel/SisOp-2025/blob/main/without.png)
 
 **Kesimpulan** 
 > Perbedaan utama antara FCFS **dengan dan tanpa arrival time** terletak pada kompleksitas dan realisme. Tanpa arrival time, algoritma ini sangat sederhana dan cocok untuk sistem di mana semua proses dimulai bersamaan, seperti komputasi batch. Namun, ini tidak realistis untuk sistem interaktif di mana proses tiba secara dinamis. Sebaliknya, FCFS dengan arrival time lebih fleksibel tetapi memerlukan pengurutan proses berdasarkan waktu kedatangan, sehingga menambah kompleksitas perhitungan.  
