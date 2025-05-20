@@ -1,30 +1,16 @@
+# PENJELASAN SJF NON PREEMTIVE WITHOUT ARRIVAL TIME
 
-# LAPORAN OPERATING SYSTEM
-
-## “CPU SCHEDULLING SJF”
-
-![alt text](https://github.com/DinoAriel/tes/blob/main/Logo_PENS%20(1).png)
-
-### Anggota Kelompok:
-- Havid Rosihandanu (3124500048)  
-- Dino Ariel Ihsan Saputra (3124500053)  
-
-### Dosen Pengajar:
-- Dr. Ferry Astika Saputra, ST, M.Sc
-
----
-
-## CPU SCHEDULLING SJF WITHOUT ARRIVAL TIME
-
-### Analisa Code
+## DINO ARIEL IHSAN SAPUTRA 
+## 3124500053
 
 ```c
-#include<stdio.h>
-
 struct proc {
     int no, bt, ct, tat, wt;
 };
+```
+> struct diatas digunakan untuk  menyimpan informasi proses, termasuk nomor proses (no), burst time (bt), completion time (ct), turnaround time (tat), dan waiting time (wt).
 
+```c
 struct proc read(int i) {
     struct proc p;
     printf("\nProcess No: %d\n", i);
@@ -33,40 +19,28 @@ struct proc read(int i) {
     scanf("%d", &p.bt);
     return p;
 }
-```
-
-Penjelasan:
-
-- `no` : Nomor unik proses.  
-- `bt` : Burst Time (waktu eksekusi proses).  
-- `ct` : Completion Time (waktu selesainya proses).  
-- `tat` : Turnaround Time (total waktu dari awal hingga selesai, `ct - arrival time`).  
-- `wt` : Waiting Time (waktu menunggu proses di antrian, `tat - bt`).  
-
-Fungsi `read` digunakan untuk membaca input burst time dari pengguna.  
-Setiap proses diberi nomor sesuai urutan pemanggilan fungsi (`i`).
-
----
+``` 
+>Fungsi diatas membaca input burst time untuk setiap proses dan mengembalikan objek proc yang telah diisi.
 
 ```c
-printf("<--SJF Scheduling Algorithm Without Arrival Time (Non-Preemptive)-->
-");
+struct proc p[10], tmp;
+float avgtat = 0, avgwt = 0;
+int n, ct = 0;
+```
+> Code diatas Deklarasi variabel untuk menyimpan data proses, waktu penyelesaian (ct), dan rata-rata TAT/WT.
+
+```c
+printf("<--SJF Scheduling Algorithm Without Arrival Time (Non-Preemptive)-->\n");
 printf("Enter Number of Processes: ");
 scanf("%d", &n);
 ```
-
-Program meminta jumlah proses (`n`) dari pengguna.
-
----
+> Code diatas digunakan untuk input jumlah dari proses
 
 ```c
 for(int i = 0; i < n; i++)
     p[i] = read(i + 1);
 ```
-
-Loop untuk membaca data burst time setiap proses menggunakan fungsi `read()`.
-
----
+> Code diatas merupakan looping yang berfungsi untuk mengisi burst time setiap proses    
 
 ```c
 for(int i = 0; i < n - 1; i++)
@@ -76,12 +50,8 @@ for(int i = 0; i < n - 1; i++)
             p[j] = p[j + 1];
             p[j + 1] = tmp;
         }
-```
-
-Proses diurutkan berdasarkan burst time dari terkecil ke terbesar menggunakan algoritma Bubble Sort.  
-**Tujuan:** Memprioritaskan proses dengan burst time terpendek (konsep SJF).
-
----
+ ```
+> Proses diurutkan berdasarkan burst time terkecil ke terbesar (SJF). Proses dengan burst time lebih kecil diprioritaskan.
 
 ```c
 for(int i = 0; i < n; i++) {
@@ -92,56 +62,34 @@ for(int i = 0; i < n; i++) {
     avgwt += p[i].wt;
 }
 ```
-
-- **Completion Time (CT)**: Waktu selesainya proses dihitung secara akumulatif.  
-- **Turnaround Time (TAT)**: Karena semua proses memiliki `arrival time = 0`, maka `TAT = CT`.  
-- **Waiting Time (WT)**: `WT = TAT - BT`.
-
-Nilai `TAT` dan `WT` diakumulasikan untuk menghitung rata-rata.
-
----
+> Code diatas digunakan untuk menghitung
+* Completion Time (CT): Waktu penyelesaian proses diakumulasi.
+* Turnaround Time (TAT): TAT = CT (karena arrival time = 0).
+* Waiting Time (WT): WT = TAT - Burst Time.
 
 ```c
 printf("\nProcessNo\tBT\tCT\tTAT\tWT\tRT\n");
 for(int i = 0; i < n; i++)
     printf("P%d\t\t%d\t%d\t%d\t%d\t%d\n", p[i].no, p[i].bt, p[i].ct, p[i].tat, p[i].wt, p[i].wt);
+
+avgtat /= n, avgwt /= n;
+printf("\nAverage TurnAroundTime=%f\nAverage WaitingTime=%f", avgtat, avgwt);
 ```
+> Code diats digunakan untuk Menampilkan hasil perhitungan dan rata-rata TAT/WT.
 
-Menampilkan tabel hasil perhitungan untuk setiap proses.  
-**Response Time (RT)** sama dengan **WT** karena SJF non-preemptive tidak ada interupsi.
+## HASIL COMPILE
+![Hasil compile](https://github.com/Havidrosihandanu/SisOp-2025/blob/main/week-12/assets/hasil.png)
 
----
+## GANT CHART
+![Gantt chart](https://github.com/Havidrosihandanu/SisOp-2025/blob/main/week-12/assets/sjf-without-arrival-time.png)
 
-```c
-avgtat /= n;
-avgwt /= n;
-printf("\nAverage TurnAroundTime = %f\nAverage WaitingTime = %f", avgtat, avgwt);
-```
+## TABLE SJF NON PREEMTIVE WITHOUT ARRIVAL TIME
+| proses | burst time  |
+| :----- | :---------: |
+| P1     | 6           |
+| P2     | 8           |
+| P3     | 7           |
+| P4     | 3           |
 
-Menghitung dan menampilkan rata-rata TAT dan WT.
-
----
-
-## Gantt Chart
-
-![alt text](https://github.com/DinoAriel/tes/blob/main/Group%201.png)
-
----
-
-## Tabel
-
-_(Tabel hasil eksekusi bisa ditambahkan jika hasil input tersedia)_
-
----
-
-## Hasil
-
-![alt text](https://github.com/DinoAriel/tes/blob/main/Screenshot%202025-05-19%20141626.png)
-
----
-
-## Kesimpulan
-
-Kode ini adalah contoh dasar **SJF Non-Preemptive** yang efektif untuk kasus khusus di mana semua proses tersedia sejak awal.  
-Meski memiliki keterbatasan, algoritma ini menjadi fondasi untuk memahami konsep optimasi penjadwalan proses dan bisa dikembangkan lebih lanjut untuk skenario yang lebih kompleks.
-
+## KESIMPULAN
+> SJF without arrival time non preemtive merupakan algoritma penjadwalan CPU yang menjalankan proses dengan burst time yang paling kecil ke yang besar.tanpa menghiraukan arrival time. Dengan mengerjakan proses yang paling pendek terlebih dahulu diharapkan dapat efisien, tetapi hal tersebut tidak benar karena penjadwalan cpu efisien pada proses yang memiliki burst time kecil, untuk proses yang memiliki burst besar harusm menunggu waktu hingga proses di bawahya selesai dikerjakan semua.
