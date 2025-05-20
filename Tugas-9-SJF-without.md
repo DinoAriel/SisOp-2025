@@ -3,7 +3,7 @@
 
 ## “CPU SCHEDULLING SJF”
 
----
+![alt text](https://github.com/DinoAriel/tes/blob/main/Logo_PENS%20(1).png)
 
 ### Anggota Kelompok:
 - Havid Rosihandanu (3124500048)  
@@ -124,7 +124,7 @@ Menghitung dan menampilkan rata-rata TAT dan WT.
 
 ## Gantt Chart
 
-_(Gantt chart belum tersedia di dokumen asli, bisa ditambahkan berdasarkan urutan eksekusi)_
+![alt text](https://github.com/DinoAriel/tes/blob/main/Group%201.png)
 
 ---
 
@@ -136,7 +136,7 @@ _(Tabel hasil eksekusi bisa ditambahkan jika hasil input tersedia)_
 
 ## Hasil
 
-_(Hasil lengkap program tergantung dari input dan eksekusi program)_
+![alt text](https://github.com/DinoAriel/tes/blob/main/Screenshot%202025-05-19%20141626.png)
 
 ---
 
